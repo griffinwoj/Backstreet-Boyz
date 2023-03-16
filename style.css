@@ -1,0 +1,53 @@
+body {
+    background-color: #0a3d03;
+}
+
+header {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fa7b04;
+    margin: 10px;
+    padding: 30px;
+    border: #450281 solid 5px;
+    background-size: 8000px 800px;
+    background-image: url(./images/beans.jpg);
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+textarea {
+    height: 50px;
+    width: 600px;
+    background-color: #491a71;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+button {
+    background-color: #fa7b04;
+}
+
+.left {
+    margin-top: 20px;
+    float: left;
+    background-size: 100% 100%;
+    background-image: url(./images/beans.jpg);
+}
+
+.right {
+    margin-top: 20px;
+    float: right;
+    background-size: 100% 100%;
+    background-image: url(./Images/tree\ line.jpg);
+}
+
+#border {
+    border: #450281 solid 5px;
+    padding: 20% 20% 20% 20%;
+}
