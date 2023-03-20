@@ -1,4 +1,8 @@
 
+
+
+
+
 const googleMapsApiKey = "AIzaSyAaqlOLHQvJj6oZnB8CPCgLvWLZttkeZjc";
 const corsUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
 const trailApiKey = "fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010";
@@ -42,7 +46,13 @@ window.initMap = function() {
     }
   });
 };
-
+getNearestCoffeeShop = () => {
+  navigator.geolocation.getCurrentPosition(position => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    
+  });
+} 
 
 document.head.appendChild(script);
 
@@ -74,5 +84,4 @@ navigator.geolocation.getCurrentPosition(position => {
       hikingTrailElement.innerHTML = `Nearest hiking trail: ${hikingTrailName} (${hikingTrailLocation}, ${hikingTrailLength} miles)`;
       document.body.appendChild(hikingTrailElement);
     });
-
 });
