@@ -3,7 +3,7 @@
 
 
 
-const googleMapsApiKey = "AIzaSyAaqlOLHQvJj6oZnB8CPCgLvWLZttkeZjc";
+const googleMapsApiKey = "AIzaSyBEFvyqyp2nPc1iVK1yS7ANAC2qRv1xHbo";
 const corsUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
 const trailApiKey = "fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010";
 
