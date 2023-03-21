@@ -12,7 +12,7 @@ script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&ca
 script.async = true;
 
 
-window.initMap = function() {
+window.initMap = function () {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 37.7749, lng: -122.4194 },
     zoom: 8,
@@ -50,9 +50,9 @@ getNearestCoffeeShop = () => {
   navigator.geolocation.getCurrentPosition(position => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    
+
   });
-} 
+}
 
 document.head.appendChild(script);
 
@@ -71,6 +71,8 @@ navigator.geolocation.getCurrentPosition(position => {
       coffeeShopElement.innerHTML = `Nearest coffee shop: ${coffeeShopName} (${coffeeShopAddress})`;
       document.body.appendChild(coffeeShopElement);
     });
+  var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    targetUrl = 'https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200554844-1e1b4b5e4e8e1f5e1f5e1f5e1f5e1f5e'
 
   fetch(`https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailApiKey}`)
     .then(response => response.json())
