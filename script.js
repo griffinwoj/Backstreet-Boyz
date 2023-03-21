@@ -1,8 +1,4 @@
 
-
-
-
-
 const googleMapsApiKey = "AIzaSyBEFvyqyp2nPc1iVK1yS7ANAC2qRv1xHbo";
 const corsUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
 const trailApiKey = "fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010";
@@ -71,8 +67,8 @@ navigator.geolocation.getCurrentPosition(position => {
       coffeeShopElement.innerHTML = `Nearest coffee shop: ${coffeeShopName} (${coffeeShopAddress})`;
       document.body.appendChild(coffeeShopElement);
     });
-  var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-    targetUrl = 'https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200554844-1e1b4b5e4e8e1f5e1f5e1f5e1f5e1f5e'
+
+
 
   fetch(`https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailApiKey}`)
     .then(response => response.json())
@@ -87,3 +83,6 @@ navigator.geolocation.getCurrentPosition(position => {
       document.body.appendChild(hikingTrailElement);
     });
 });
+
+var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+  targetUrl = 'https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200554844-1e1b4b5e4e8e1f5e1f5e1f5e1f5e1f5e'
