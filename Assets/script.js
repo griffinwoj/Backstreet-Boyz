@@ -1,7 +1,6 @@
-
 // more trials
 
-  const corsHeaders = {
+const corsHeaders = {
     "Access-Control-Allow-Origin": "https://your-website-domain.com",
     "Access-Control-Allow-Methods": "GET",
     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
