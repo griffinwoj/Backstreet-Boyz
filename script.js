@@ -1,12 +1,11 @@
 
 const googleMapsApiKey = "AIzaSyBEFvyqyp2nPc1iVK1yS7ANAC2qRv1xHbo";
 const corsUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
-const trailApiKey = "fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010";
+const trailApiKey = "2fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010";
 
 const script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&callback=initMap`;
 script.async = true;
-
 
 window.initMap = function () {
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -51,7 +50,6 @@ getNearestCoffeeShop = () => {
 }
 
 document.head.appendChild(script);
-
 navigator.geolocation.getCurrentPosition(position => {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -68,12 +66,15 @@ navigator.geolocation.getCurrentPosition(position => {
       document.body.appendChild(coffeeShopElement);
     });
 
-
-
-  fetch(`https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailApiKey}`)
+  fetch(`https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=${latitude}&lon=${longitude}&radius=10`, {
+    headers: {
+      'x-rapidapi-key': trailApiKey,
+      'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com'
+    }
+  })
     .then(response => response.json())
     .then(data => {
-      const hikingTrail = data.trails[0];
+      const hikingTrail = data.data[0];
       const hikingTrailName = hikingTrail.name;
       const hikingTrailLocation = hikingTrail.location;
       const hikingTrailLength = hikingTrail.length;
@@ -84,5 +85,14 @@ navigator.geolocation.getCurrentPosition(position => {
     });
 });
 
-var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-  targetUrl = 'https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200554844-1e1b4b5e4e8e1f5e1f5e1f5e1f5e1f5e'
+// handle the cross-origin request
+app.get('/api/data', (req, res) => {
+  // send the response
+  res.json({ message: 'Hello, world!' });
+});
+
+// start the server
+app.listen(3000, () => {
+  console.log('Server listening on port 3000.');
+});
+
