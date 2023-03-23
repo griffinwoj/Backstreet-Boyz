@@ -29,6 +29,7 @@ window.initMap = function () {
           infoWindow.setPosition(pos);
           infoWindow.setContent("Location found.");
           infoWindow.open(map);
+          console.log(pos)
           map.setCenter(pos);
         },
         () => {
@@ -53,7 +54,8 @@ document.head.appendChild(script);
 navigator.geolocation.getCurrentPosition(position => {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-
+  console.log("latitude", latitude)
+  console.log("longitude", longitude)
   fetch(`${corsUrl}${latitude},${longitude}&radius=500&type=cafe&keyword=coffee&key=${googleMapsApiKey}`)
     .then(response => response.json())
     .then(data => {
@@ -63,36 +65,22 @@ navigator.geolocation.getCurrentPosition(position => {
 
       const coffeeShopElement = document.createElement('div');
       coffeeShopElement.innerHTML = `Nearest coffee shop: ${coffeeShopName} (${coffeeShopAddress})`;
+      console.log(coffeeShopElement)
       document.body.appendChild(coffeeShopElement);
     });
 
-  fetch(`https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=${latitude}&lon=${longitude}&radius=10`, {
-    headers: {
-      'x-rapidapi-key': trailApiKey,
-      'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com'
-    }
-  })
-    .then(response => response.json())
-    .then(data => {
-      const hikingTrail = data.data[0];
-      const hikingTrailName = hikingTrail.name;
-      const hikingTrailLocation = hikingTrail.location;
-      const hikingTrailLength = hikingTrail.length;
-
-      const hikingTrailElement = document.createElement('div');
-      hikingTrailElement.innerHTML = `Nearest hiking trail: ${hikingTrailName} (${hikingTrailLocation}, ${hikingTrailLength} miles)`;
-      document.body.appendChild(hikingTrailElement);
-    });
+  // yey.
 });
 
-// handle the cross-origin request
-app.get('/api/data', (req, res) => {
-  // send the response
-  res.json({ message: 'Hello, world!' });
-});
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '2fc6aecdb0mshaa821d0dd2c6c0ap1f7de4jsncf7d761a6010',
+    'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com'
+  }
+};
 
-// start the server
-app.listen(3000, () => {
-  console.log('Server listening on port 3000.');
-});
-
+fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&lon=-82.9128704', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
