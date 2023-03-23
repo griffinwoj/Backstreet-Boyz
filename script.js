@@ -83,7 +83,12 @@ const options = {
 
 fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&lon=-82.9128704', options)
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response => { 
+    const closestTrail = document.querySelector('#trail');
+    closestTrail.textContent = response.data[0].name;
+    console.log(response.data)
+  })
+
   .catch(err => console.error(err));
 
   // const closestTrail = data.trails[0];
@@ -93,3 +98,5 @@ fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&l
   closestTrail.textContent = data[0];
   const trailName = document.querySelector('#trail-city');
   trailName.textContent = data[0].city;
+  
+  
