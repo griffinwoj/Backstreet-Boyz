@@ -42,6 +42,7 @@ window.initMap = function () {
     }
   });
 };
+
 getNearestCoffeeShop = () => {
   navigator.geolocation.getCurrentPosition(position => {
     const latitude = position.coords.latitude;
@@ -54,15 +55,15 @@ document.head.appendChild(script);
 navigator.geolocation.getCurrentPosition(position => {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-  console.log("latitude", latitude)
-  console.log("longitude", longitude)
+  // console.log("latitude", latitude)
+  // console.log("longitude", longitude)
   fetch(`${corsUrl}${latitude},${longitude}&radius=500&type=cafe&keyword=coffee&key=${googleMapsApiKey}`)
     .then(response => response.json())
     .then(data => {
       const coffeeShop = data.results[0];
       const coffeeShopName = coffeeShop.name;
+      console.log(coffeeShop.name)
       const coffeeShopAddress = coffeeShop.vicinity;
-
       const coffeeShopElement = document.createElement('div');
       coffeeShopElement.innerHTML = `Nearest coffee shop: ${coffeeShopName} (${coffeeShopAddress})`;
       console.log(coffeeShopElement)
@@ -80,23 +81,26 @@ const options = {
     'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com'
   }
 };
+document.head.appendChild(script);
+navigator.geolocation.getCurrentPosition(position => {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  console.log("latitude", latitude)
+  console.log("longitude", longitude)
+  fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=' + latitude + '&lon=' + longitude + '%3E', options)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      const closestTrail = document.querySelector('#trail');
+      closestTrail.textContent = response.data[0].name;
+      const trailName = document.querySelector('#trail-city');
+      trailName.textContent = response.data[0].city;
+      console.log(response.data)
+    }),
+    (error) => {
+      console.error(error);
+    }
+  console.log("correctURL", "https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&lon=-82.9128704%3E")
+});
 
-fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&lon=-82.9128704', options)
-  .then(response => response.json())
-  .then(response => { 
-    const closestTrail = document.querySelector('#trail');
-    closestTrail.textContent = response.data[0].name;
-    console.log(response.data)
-  })
 
-  .catch(err => console.error(err));
-
-  // const closestTrail = data.trails[0];
-  // closestTrail.name = closestTrail.name.replace
-
-  const closestTrail = document.querySelector('#trail');
-  closestTrail.textContent = data[0];
-  const trailName = document.querySelector('#trail-city');
-  trailName.textContent = data[0].city;
-  
-  
