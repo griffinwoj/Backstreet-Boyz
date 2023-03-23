@@ -69,6 +69,7 @@ navigator.geolocation.getCurrentPosition(position => {
       document.body.appendChild(coffeeShopElement);
     });
 
+
   // yey.
 });
 
@@ -84,3 +85,11 @@ fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&l
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
+
+  // const closestTrail = data.trails[0];
+  // closestTrail.name = closestTrail.name.replace
+
+  const closestTrail = document.querySelector('#trail');
+  closestTrail.textContent = data[0];
+  const trailName = document.querySelector('#trail-city');
+  trailName.textContent = data[0].city;
