@@ -102,6 +102,16 @@ svg {
     border-style: dashed;
     
   }
+
+  #coffeeBox {
+    float: left;
+    border: #fff solid 5px;
+  }
+
+  #hikingBox {
+    float: right;
+  }
+
   .cafe {
     color: darkgreen;
     -webkit-text-stroke-color: black;
@@ -136,12 +146,83 @@ svg {
     width: fit-content;
 }
 #trail {
-    position: relative;
-    z-index: 9999;
-    font-size: 35px;
-    font-weight: bold;
-   
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
 }
+
+#trailTwo {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#trailThree {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#trailFour {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#trailFive {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#coffee {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#coffeeTwo {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#coffeeThree {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#coffeeFour {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#coffeeFive {
+  position: relative;
+  z-index: 9999;
+  font-size: 35px;
+  font-weight: bold;
+}
+
   .btn_works {
       left: 100px;
       right: unset;

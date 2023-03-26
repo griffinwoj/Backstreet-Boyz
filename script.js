@@ -104,3 +104,18 @@ navigator.geolocation.getCurrentPosition(position => {
 });
 
 
+fetch('https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=42.4411136&lon=-82.9128704', options)
+  .then(response => response.json())
+  .then(response => { 
+    const closestTrail = document.querySelector('#trail');
+    closestTrail.textContent = response.data[0].name;
+    const closestTrailTwo = document.querySelector('#trailTwo');
+    closestTrailTwo.textContent = response.data[1].name;
+    const closestTrailThree = document.querySelector('#trailThree');
+    closestTrailThree.textContent = response.data[2].name;
+    const closestTrailFour = document.querySelector('#trailFour');
+    closestTrailFour.textContent = response.data[3].name;
+    const closestTrailFive = document.querySelector('#trailFive');
+    closestTrailFive.textContent = response.data[4].name;
+    console.log(response.data);
+  })
