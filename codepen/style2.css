@@ -233,3 +233,11 @@ svg {
       background: #ffffff;
       color: #1B1734;
   }
+
+  .map{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
