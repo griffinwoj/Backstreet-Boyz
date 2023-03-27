@@ -253,7 +253,7 @@ window.initMap = function () {
           infoWindow.setPosition(pos);
           infoWindow.setContent("Location found.");
           infoWindow.open(map);
-          console.log(pos)
+          console.log(pos);
           map.setCenter(pos);
         },
         () => {
